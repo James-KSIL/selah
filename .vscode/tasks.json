@@ -1,0 +1,47 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "run-streamlit",
+			"type": "shell",
+			"command": "I:/Selah/.venv/Scripts/python.exe",
+			"args": [
+				"-m",
+				"streamlit",
+				"run",
+				"app.py"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "run-streamlit",
+			"type": "shell",
+			"command": "I:/Selah/.venv/Scripts/python.exe",
+			"args": [
+				"-m",
+				"streamlit",
+				"run",
+				"app.py"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "run-streamlit",
+			"type": "shell",
+			"command": "I:/Selah/.venv/Scripts/python.exe",
+			"args": [
+				"-m",
+				"streamlit",
+				"run",
+				"app.py"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

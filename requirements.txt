@@ -1,0 +1,4 @@
+streamlit
+feedparser
+yt-dlp
+python-dateutil
