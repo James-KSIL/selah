@@ -4,8 +4,14 @@ import sys
 from typing import List, Dict, Any
 
 
+def _build_youtube_url(source_id: str) -> str:
+    if source_id.startswith("PL"):
+        return f"https://www.youtube.com/playlist?list={source_id}"
+    return f"https://www.youtube.com/channel/{source_id}"
+
+
 def fetch_ytdlp(channel_id: str) -> List[Dict[str, Any]]:
-    channel_url = f"https://www.youtube.com/channel/{channel_id}"
+    channel_url = _build_youtube_url(channel_id)
     command = [
         sys.executable,
         "-m",

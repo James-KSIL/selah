@@ -33,10 +33,22 @@ def _parse_yyyymmdd(value: Optional[str]) -> Optional[datetime]:
         return None
 
 
+def _is_unavailable(entry: Dict[str, Any]) -> bool:
+    title = (entry.get("title") or "").strip().lower()
+    if title in {"[deleted video]", "[private video]"}:
+        return True
+    availability = (entry.get("availability") or "").strip().lower()
+    return availability in {"private", "needs_auth", "unavailable"}
+
+
 def normalize_ytdlp_entries(entries: Iterable[Dict[str, Any]]) -> List[VideoItem]:
     items: List[VideoItem] = []
     for entry in entries:
+        if _is_unavailable(entry):
+            continue
         video_id = entry.get("id")
+        if not video_id:
+            continue
         urls = _build_urls(video_id)
         published = _parse_yyyymmdd(entry.get("upload_date"))
         thumbnail = entry.get("thumbnail")
